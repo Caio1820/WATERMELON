@@ -1,0 +1,6 @@
+{
+  "name": "Watermelon | Salada de Frutas e Sorveteria",
+  "description": "Biosite oficial da Watermelon com pedidos no iFood e 99, WhatsApp, localização e redes sociais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

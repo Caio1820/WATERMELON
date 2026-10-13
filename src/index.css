@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-melon-primary: #FF4D6D;
+    --color-melon-dark: #C9184A;
+    --color-melon-deep: #590D22;
+    --color-green-leaf: #2E9E5B;
+    --color-green-light: #B7E4C7;
+    --color-green-deep: #1B4332;
+    --color-cream-bg: #FFF8F3;
+    --color-cream-card: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #FFF8F3;
+    color: #2D1217;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  }
+}
+
+/* Glassmorphism card styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(255, 77, 109, 0.12), 0 4px 12px -2px rgba(46, 158, 91, 0.08);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Shimmer / shine reflection across primary buttons */
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  animation: shine-sweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -80%;
+  }
+  30%, 100% {
+    left: 140%;
+  }
+}
+
+/* Floating elements */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-4deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(46, 158, 91, 0.4), 0 0 0 0 rgba(46, 158, 91, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px -5px rgba(46, 158, 91, 0.5), 0 0 0 10px rgba(46, 158, 91, 0);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-whatsapp-pulse {
+  animation: pulse-subtle 2.5s infinite;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-button::after,
+  .animate-float,
+  .animate-float-reverse,
+  .animate-whatsapp-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
+}

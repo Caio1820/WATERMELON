@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Watermelon | Salada de Frutas e Sorveteria</title>
+  <meta name="description" content="Frescor, fruta e sorvete que refrescam seu dia 🍉🍨 Peça pelo iFood, 99 ou WhatsApp!">
+  
+  <!-- OpenGraph Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Watermelon | Salada de Frutas e Sorveteria">
+  <meta property="og:description" content="Frescor, fruta e sorvete que refrescam seu dia 🍉🍨 Peça pelo iFood, 99 ou WhatsApp!">
+  <meta property="og:image" content="https://i.postimg.cc/htxsr73Y/watermemlon.jpg">
+  <meta property="og:image:alt" content="Watermelon Salada de Frutas e Sorveteria">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Watermelon">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Watermelon | Salada de Frutas e Sorveteria">
+  <meta name="twitter:description" content="Frescor, fruta e sorvete que refrescam seu dia 🍉🍨 Peça pelo iFood, 99 ou WhatsApp!">
+  <meta name="twitter:image" content="https://i.postimg.cc/htxsr73Y/watermemlon.jpg">
+
+  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/htxsr73Y/watermemlon.jpg">
+  <meta name="theme-color" content="#FF4D6D">
+
+  <!-- Google Fonts: Fredoka & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #FF4D6D;
+      --primary-dark: #C9184A;
+      --leaf-green: #2E9E5B;
+      --light-green: #B7E4C7;
+      --cream-bg: #FFF8F3;
+      --text-dark: #2D1217;
+      --text-muted: #6A4E53;
+      --font-display: 'Fredoka', cursive, sans-serif;
+      --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(180deg, #FFF0F3 0%, #FFF8F3 40%, #F1FAF5 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Ambient Background Blooms */
+    .bg-bloom-1 {
+      position: fixed;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 77, 109, 0.15) 0%, rgba(255, 165, 186, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-bloom-2 {
+      position: fixed;
+      top: 40%;
+      right: -150px;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 158, 91, 0.12) 0%, rgba(183, 228, 199, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating SVG slices */
+    .floating-slice {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      animation: float-slice 6s ease-in-out infinite;
+    }
+
+    .floating-slice-1 {
+      top: 40px;
+      left: 15px;
+    }
+
+    .floating-slice-2 {
+      top: 45%;
+      right: 15px;
+      animation-duration: 7s;
+      animation-direction: reverse;
+    }
+
+    @keyframes float-slice {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 540px;
+      padding: 24px 16px 80px 16px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .logo-glow {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF4D6D, #B7E4C7, #2E9E5B);
+      filter: blur(10px);
+      opacity: 0.7;
+    }
+
+    .logo-ring {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #FF4D6D 0%, #FFA5BA 50%, #2E9E5B 100%);
+      box-shadow: 0 10px 25px -5px rgba(255, 77, 109, 0.3);
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background: white;
+      display: block;
+    }
+
+    .logo-badge {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      background: white;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid #FFCCD5;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #FF4D6D 0%, #E01E5A 60%, #2E9E5B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: #6A2E35;
+      margin-bottom: 8px;
+    }
+
+    .slogan {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 320px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .delivery-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid #B7E4C7;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1B4332;
+      box-shadow: 0 2px 8px rgba(46, 158, 91, 0.1);
+    }
+
+    .delivery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2E9E5B;
+      box-shadow: 0 0 0 2px #B7E4C7;
+    }
+
+    /* Links Navigation */
+    .links-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 24px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-link:active {
+      transform: scale(0.98);
+    }
+
+    /* Primary highlight buttons */
+    .btn-ifood {
+      background: linear-gradient(90deg, #FF4D6D 0%, #E01E5A 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 24px -4px rgba(255, 77, 109, 0.4);
+      border: 1px solid rgba(255, 117, 143, 0.5);
+    }
+
+    .btn-99 {
+      background: linear-gradient(90deg, #2E9E5B 0%, #1E824C 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 24px -4px rgba(46, 158, 91, 0.35);
+      border: 1px solid rgba(82, 183, 136, 0.5);
+    }
+
+    /* Standard Glassmorphism links */
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-dark);
+      box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.04);
+      border: 1px solid #FFFFFF;
+    }
+
+    .btn-glass:hover {
+      background: #ffffff;
+      border-color: #FFCCD5;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -4px rgba(255, 77, 109, 0.15);
+    }
+
+    .btn-ifood:hover, .btn-99:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    /* Shimmer Sweep Animation */
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 80%);
+      transform: rotate(25deg);
+      animation: sweep 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sweep {
+      0% { left: -80%; }
+      30%, 100% { left: 140%; }
+    }
+
+    .btn-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .btn-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .icon-ifood { background: rgba(255, 255, 255, 0.2); color: white; }
+    .icon-99 { background: rgba(255, 255, 255, 0.2); color: white; }
+    .icon-whatsapp { background: #25D366; color: white; }
+    .icon-maps { background: #FF758F; color: white; }
+    .icon-google { background: #FFB703; color: white; }
+    .icon-instagram { background: linear-gradient(45deg, #FD1D1D, #E1306C, #833AB4); color: white; }
+    .icon-tiktok { background: #000000; color: white; }
+
+    .btn-texts {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .btn-title-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .badge-pill {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .btn-desc {
+      font-size: 12.5px;
+      font-weight: 500;
+      opacity: 0.88;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+
+    .btn-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-glass .btn-chevron {
+      background: #FFF0F3;
+      color: #FF4D6D;
+    }
+
+    /* Features Section */
+    .features-section {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .features-heading {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid white;
+      border-radius: 20px;
+      padding: 16px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .feature-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      animation: wa-pulse 2.5s infinite;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:active {
+      transform: scale(0.94);
+    }
+
+    @keyframes wa-pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5), 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 204, 213, 0.5);
+      text-align: center;
+      font-size: 12px;
+      color: #7A525A;
+      width: 100%;
+    }
+
+    .footer a {
+      color: #FF4D6D;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shimmer::after,
+      .floating-slice,
+      .wa-float {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient background elements -->
+  <div class="bg-bloom-1"></div>
+  <div class="bg-bloom-2"></div>
+
+  <!-- Floating Watermelon Slices -->
+  <div class="floating-slice floating-slice-1">
+    <svg width="60" height="60" viewBox="0 0 80 80" fill="none">
+      <path d="M10 20C10 20 40 10 65 35C90 60 80 90 80 90C80 90 50 85 28 63C6 41 10 20 10 20Z" fill="#2E9E5B" />
+      <path d="M14 24C14 24 38 16 59 37C80 58 72 82 72 82C72 82 48 76 30 58C12 40 14 24 14 24Z" fill="#D8F3DC" />
+      <path d="M18 28C18 28 36 22 53 39C70 56 64 74 64 74C64 74 44 68 28 52C14 38 18 28 18 28Z" fill="#FF4D6D" />
+      <ellipse cx="32" cy="42" rx="2" ry="3.5" transform="rotate(-30 32 42)" fill="#3B1217" />
+      <ellipse cx="45" cy="48" rx="2" ry="3.5" transform="rotate(-40 45 48)" fill="#3B1217" />
+    </svg>
+  </div>
+
+  <div class="floating-slice floating-slice-2">
+    <svg width="50" height="50" viewBox="0 0 70 70" fill="none">
+      <path d="M60 15C60 15 35 8 15 28C-5 48 2 72 2 72C2 72 26 68 44 50C62 32 60 15 60 15Z" fill="#2E9E5B" />
+      <path d="M56 18C56 18 36 12 19 29C2 46 8 66 8 66C8 66 28 62 43 47C58 32 56 18 56 18Z" fill="#D8F3DC" />
+      <path d="M52 21C52 21 35 16 21 30C7 44 12 60 12 60C12 60 29 56 41 44C53 32 52 21 52 21Z" fill="#FF4D6D" />
+      <ellipse cx="32" cy="36" rx="1.8" ry="3" transform="rotate(25 32 36)" fill="#3B1217" />
+    </svg>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-wrapper">
+        <div class="logo-glow"></div>
+        <div class="logo-ring">
+          <img src="https://i.postimg.cc/htxsr73Y/watermemlon.jpg" alt="Logo Watermelon" class="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect fill=\'%23FF4D6D\' width=\'100\' height=\'100\'/><text fill=\'%23fff\' font-size=\'40\' x=\'50\' y=\'65\' text-anchor=\'middle\'>🍉</text></svg>'">
+        </div>
+        <div class="logo-badge">🍉</div>
+      </div>
+
+      <h1 class="title">Watermelon</h1>
+      <p class="subtitle">Salada de Frutas & Sorveteria</p>
+      <p class="slogan">Frescor, fruta e sorvete que refrescam seu dia 🍉🍨</p>
+
+      <div class="delivery-chip">
+        <div class="delivery-dot"></div>
+        <span>🛵 Delivery disponível</span>
+      </div>
+    </header>
+
+    <!-- Priority Links -->
+    <nav class="links-group" aria-label="Links principais">
+      <!-- 1. iFood -->
+      <a href="https://tr.ee/6Dgh4Cftes" target="_blank" rel="noopener noreferrer" class="btn-link btn-ifood shimmer" aria-label="Peça pelo iFood">
+        <div class="btn-content">
+          <div class="btn-icon icon-ifood">🛵</div>
+          <div class="btn-texts">
+            <div class="btn-title-row">
+              <span class="btn-title">Peça pelo iFood</span>
+              <span class="badge-pill">Destaque</span>
+            </div>
+            <span class="btn-desc">Entrega rápida direto na sua casa</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 2. 99 -->
+      <a href="https://tr.ee/1leVke22Jj" target="_blank" rel="noopener noreferrer" class="btn-link btn-99 shimmer" aria-label="Peça pela 99">
+        <div class="btn-content">
+          <div class="btn-icon icon-99">🚗</div>
+          <div class="btn-texts">
+            <div class="btn-title-row">
+              <span class="btn-title">Peça pela 99</span>
+              <span class="badge-pill">Popular</span>
+            </div>
+            <span class="btn-desc">Peça pelo 99Food com facilidade</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 3. WhatsApp -->
+      <a href="https://wa.me/5596984203827?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Watermelon%20e%20gostaria%20de%20fazer%20um%20pedido%20%F0%9F%8D%89" target="_blank" rel="noopener noreferrer" class="btn-link btn-glass" aria-label="Fale no WhatsApp">
+        <div class="btn-content">
+          <div class="btn-icon icon-whatsapp">💬</div>
+          <div class="btn-texts">
+            <span class="btn-title">Fale no WhatsApp</span>
+            <span class="btn-desc">(96) 98420-3827 • Atendimento direto</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 4. Maps / Como Chegar -->
+      <a href="https://tr.ee/Ohai4rUFwP" target="_blank" rel="noopener noreferrer" class="btn-link btn-glass" aria-label="Como chegar e Localização">
+        <div class="btn-content">
+          <div class="btn-icon icon-maps">📍</div>
+          <div class="btn-texts">
+            <span class="btn-title">Como chegar / Localização</span>
+            <span class="btn-desc">Abra no mapa e venha nos visitar</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 5. Avalie no Google -->
+      <a href="https://tr.ee/nPzNQl6mo" target="_blank" rel="noopener noreferrer" class="btn-link btn-glass" aria-label="Avalie a gente no Google">
+        <div class="btn-content">
+          <div class="btn-icon icon-google">⭐</div>
+          <div class="btn-texts">
+            <span class="btn-title">Avalie a gente no Google</span>
+            <span class="btn-desc">Sua avaliação ajuda muito nossa sorveteria!</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 6. Instagram -->
+      <a href="https://www.instagram.com/br.watermelon" target="_blank" rel="noopener noreferrer" class="btn-link btn-glass" aria-label="Instagram da Watermelon">
+        <div class="btn-content">
+          <div class="btn-icon icon-instagram">📸</div>
+          <div class="btn-texts">
+            <span class="btn-title">Instagram @br.watermelon</span>
+            <span class="btn-desc">Novidades, fotos e bastidores fresquinhos</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+
+      <!-- 7. TikTok -->
+      <a href="https://www.tiktok.com/@br.watermelon" target="_blank" rel="noopener noreferrer" class="btn-link btn-glass" aria-label="TikTok da Watermelon">
+        <div class="btn-content">
+          <div class="btn-icon icon-tiktok">🎵</div>
+          <div class="btn-texts">
+            <span class="btn-title">TikTok @br.watermelon</span>
+            <span class="btn-desc">Vídeos e tendências deliciosas</span>
+          </div>
+        </div>
+        <div class="btn-chevron">➔</div>
+      </a>
+    </nav>
+
+    <!-- Por que pedir na Watermelon -->
+    <section class="features-section" aria-label="Diferenciais da Watermelon">
+      <h2 class="features-heading">✨ Por que pedir na Watermelon? ✨</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #FFF0F3;">🍓</div>
+          <h3 class="feature-title">Frutas Fresquinhas</h3>
+          <p class="feature-desc">Selecionadas todos os dias para máximo frescor e doçura.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #E8F5E9;">🍨</div>
+          <h3 class="feature-title">Sorvetes Cremosos</h3>
+          <p class="feature-desc">Textura marcante e sabores irresistíveis que refrescam.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box" style="background: #FFF5EB;">🛵</div>
+          <h3 class="feature-title">Delivery Prático</h3>
+          <p class="feature-desc">Embalagens especiais para chegar geladinho na sua casa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© Watermelon | Salada de Frutas e Sorveteria</p>
+      <p style="margin-top: 4px; font-size: 11px;">Site criado por <a href="https://www.instagram.com/tapzoomm" target="_blank" rel="noopener noreferrer">@tapzoomm</a></p>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/5596984203827?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Watermelon%20e%20gostaria%20de%20fazer%20um%20pedido%20%F0%9F%8D%89" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Conversar no WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92zm5.78 14.15c-.24.68-1.4 1.25-1.92 1.3-.5.05-1.14.07-1.85-.15-.43-.14-.99-.33-1.7-.64-3.03-1.32-5.01-4.39-5.16-4.59-.15-.2-1.24-1.65-1.24-3.15 0-1.5 0.78-2.24 1.06-2.55.28-.31.6-.39.8-.39.2 0 .4 0 .58.01.19.01.44-.07.69.52.25.6.85 2.08.93 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.18-.32.4-.46.54-.15.15-.31.32-.13.62.18.3.79 1.3 1.7 2.11 1.17 1.04 2.15 1.37 2.46 1.52.31.15.48.13.66-.08.18-.21.78-.91.99-1.22.21-.31.41-.26.69-.15.28.1.78.37 1.83.89.28.14.47.23.54.34.07.11.07.66-.17 1.34z"/>
+    </svg>
+  </a>
+</body>
+</html>
